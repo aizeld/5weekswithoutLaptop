@@ -35,8 +35,19 @@ public class Controller {
 
     @FXML
     private void signupClick(ActionEvent event){
-        System.out.println("you pressed auth button");
+        String loginText = login_field.getText().trim();
+        String loginPassword = password_field.getText().trim();
+
+        if(!loginText.equals("") && !loginPassword.equals("")){
+            loginUser(loginText, loginPassword);
+        }else {
+            System.out.println("Login and Password are empty");
+        }
     }
+
+    private void loginUser(String loginText, String loginPassword) {
+    }
+
     @FXML
     private void authclick(){
         authSignInButton.getScene().getWindow().hide();
