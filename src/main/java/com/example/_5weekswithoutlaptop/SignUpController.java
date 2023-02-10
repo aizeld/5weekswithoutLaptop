@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
+
 public class SignUpController {
 
     @FXML
@@ -33,7 +35,17 @@ public class SignUpController {
     private TextField password_field;
 
     @FXML
-    void signupClick(ActionEvent event) {
+
+    void signupClick() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        try {
+            dbHandler.SignUpUser(SignUpName.getText(), SignUpLastname.getText(),
+                    login_field.getText(), password_field.getText(), SignUpCountry.getText(), "Male");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
