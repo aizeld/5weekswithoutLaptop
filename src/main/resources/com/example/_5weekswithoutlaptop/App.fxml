@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="622.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example._5weekswithoutlaptop.Home">
+    <children>
+        <AnchorPane layoutX="-6.0" prefHeight="105.0" prefWidth="628.0" style="-fx-background-color: black;">
+            <children>
+                <Label layoutX="21.0" layoutY="18.0" prefHeight="32.0" prefWidth="258.0" text="AstanaSuArnasy" textFill="#e1a128">
+                    <font>
+                        <Font name="Castellar" size="23.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label layoutX="202.0" layoutY="133.0" prefHeight="51.0" prefWidth="238.0" text="Hello World!">
+            <font>
+                <Font name="Candara" size="38.0" />
+            </font>
+        </Label>
+      <ImageView fx:id="ImgbuttonHome" fitHeight="200.0" fitWidth="392.0" layoutX="125.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/example/_5weekswithoutlaptop/Assets/sBEmlwXpHv0.jpg" />
+         </image>
+      </ImageView>
+
+    </children>
+</AnchorPane>
