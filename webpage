@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Online Shoes Shop</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Online Shoes Shop</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Featured Shoes</h2>
+      <div class="shoe-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMdG5f2iFZznWV09P4KyLvoh5-gBPXuNVMXA&usqp=CAU" alt="Shoe 1">
+        <h3>Adidas</h3>
+        <p>59690 tenge</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="shoe-card">
+        <img src="https://static.nike.com/a/images/t_default/b6e11cbd-509d-483d-b21d-850e2d7924ca/alphafly-2-mens-road-racing-shoes-Bstm8X.png" alt="Shoe 2">
+        <h3>Nike Alphafly 2</h3>
+        <p>85990 tenge</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="shoe-card">
+        <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8d752b32-17e8-40bc-ac1a-7a8849957a12/air-force-1-07-womens-shoes-JWZTvz.png" alt="Shoe 3">
+        <h3>Nike Air Force 1 '07</h3>
+        <p>36990 tenge</p>
+        <button>Add to Cart</button>
+      </div>
+    </main>
+    <aside>
+      <h2>AstanaSuArnasy</h2>
+      <p>We are a new shoe sales company and we are glad to see you! We have only high-quality products, order and do not regret it!</p>
+    </aside>
+    <footer>
+      <p>&copy; AstanaSuArnasu 2023</p>
+    </footer>
+  </body>
+</html>
