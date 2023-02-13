@@ -37,10 +37,33 @@ public class SignUpController {
     @FXML
 
     void signupClick() {
+
+
+        SingUpnewUser();
+
+
+    }
+
+    private void SingUpnewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
+        String firstname = SignUpName.getText();
+        String lastname = SignUpLastname.getText();
+        String username = login_field.getText();
+        String password = password_field.getText();
+        String location = SignUpCountry.getText();
+        String gender = "";
+        if(SignUpCheckboxMale.isSelected()){
+            gender = "Male";
+        }else if(SignUpCheckboxFemale.isSelected()){
+            gender = "Female";
+        }else{
+            gender = "Not given";
+        }
+        User user = new User(firstname, lastname, username, password, location, gender);
+
+
         try {
-            dbHandler.SignUpUser(SignUpName.getText(), SignUpLastname.getText(),
-                    login_field.getText(), password_field.getText(), SignUpCountry.getText(), "Male");
+            dbHandler.SignUpUser(user);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

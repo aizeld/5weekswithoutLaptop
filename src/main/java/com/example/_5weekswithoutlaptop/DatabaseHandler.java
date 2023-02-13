@@ -23,7 +23,7 @@ public Connection getDbConnection() throws ClassNotFoundException, SQLException 
         return dbConnection;
     }
 
-    public void SignUpUser(String firstName, String lastName, String userName, String password, String location, String gender ) throws SQLException, ClassNotFoundException {
+    public void SignUpUser(User user) throws SQLException, ClassNotFoundException {
     String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USERS_FIRSTNAME + "," + Const.USERS_LASTNAME + "," +
             Const.USERS_USERNAME + "," + Const.USERS_PASSWORD + "," + Const.USERS_LOCATION + "," + Const.USERS_GENDER + ")" +
             "VALUES(?,?,?,?,?,?) ";
@@ -32,12 +32,12 @@ public Connection getDbConnection() throws ClassNotFoundException, SQLException 
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, firstName);
-            prSt.setString(2, lastName);
-            prSt.setString(3, userName);
-            prSt.setString(4, password);
-            prSt.setString(5, location);
-            prSt.setString(6, gender);
+            prSt.setString(1, user.getFirstname());
+            prSt.setString(2, user.getLastname());
+            prSt.setString(3, user.getUsername());
+            prSt.setString(4, user.getPassword());
+            prSt.setString(5, user.getLocation());
+            prSt.setString(6, user.getGender());
             prSt.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
