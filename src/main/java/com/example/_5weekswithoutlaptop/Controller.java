@@ -50,6 +50,34 @@ public class Controller {
     }
 
     private void loginUser(String loginText, String loginPassword) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        User user = new User();
+        user.setUsername(loginText);
+        user.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(user);
+
+        int counter= 0;
+        while(true){
+            try {
+                if (!result.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            counter++;
+        }
+        if(counter >= 1){
+            System.out.println("Success!");
+
+            OpenScene toopen = new OpenScene();
+            toopen.openS("App.fxml", authSignInButton);
+
+
+        }else{
+            Shake userAnim = new Shake(login_field);
+            Shake userAnim1 = new Shake(password_field);
+            userAnim1.Play();
+            userAnim.Play();
+        }
     }
 
     @FXML
