@@ -42,6 +42,10 @@ public class Controller {
             loginUser(loginText, loginPassword);
         }else {
             System.out.println("Login and Password are empty");
+            Shake userAnim = new Shake(login_field);
+            Shake userAnim2 = new Shake(password_field);
+            userAnim2.Play();
+            userAnim.Play();
         }
     }
 
@@ -50,19 +54,8 @@ public class Controller {
 
     @FXML
     private void authclick(){
-        authSignInButton.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SignUp.fxml"));
-        try{
-        loader.load();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+        OpenScene toopen1 = new OpenScene();
+        toopen1.openS("SignUp.fxml", authSignInButton);
     }
 
 
