@@ -64,6 +64,9 @@ public class SignUpController {
 
         try {
             dbHandler.SignUpUser(user);
+            OpenScene toopemn = new OpenScene();
+            toopemn.openS("hello-view.fxml", SignUpButton);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
