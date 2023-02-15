@@ -17,6 +17,9 @@ public class User {
         this.gender = gender;
     }
 
+    public User() {}
+
+
     public String getUsername() {
         return username;
     }

@@ -39,12 +39,14 @@ public class SignUpController {
     void signupClick() {
 
 
-        SingUpnewUser();
+        SignUpnewUser();
+
+
 
 
     }
 
-    private void SingUpnewUser() {
+    private void SignUpnewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
         String firstname = SignUpName.getText();
         String lastname = SignUpLastname.getText();
@@ -64,6 +66,8 @@ public class SignUpController {
 
         try {
             dbHandler.SignUpUser(user);
+            OpenScene toopen = new OpenScene();
+            toopen.openS("hello-view.fxml", SignUpButton);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

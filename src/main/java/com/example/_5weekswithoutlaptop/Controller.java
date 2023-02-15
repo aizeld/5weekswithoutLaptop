@@ -1,9 +1,12 @@
 package com.example._5weekswithoutlaptop;
 
+import com.example._5weekswithoutlaptop.Animation.Shake;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,25 +48,50 @@ public class Controller {
         }
     }
 
-    private void loginUser(String loginText, String loginPassword) {
+    private void loginUser(String loginText, String loginPassword){
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        User user = new User();
+        user.setUsername(loginText);
+        user.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(user);
+
+        int counter= 0;
+        while(true){
+            try {
+                if (!result.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            counter++;
+        }
+        if(counter >= 1){
+            System.out.println("Success!");
+
+           OpenScene toopen = new OpenScene();
+            toopen.openS("App.fxml", authSignInButton);
+
+
+        }else{
+            Shake userAnim = new Shake(login_field);
+            Shake userAnim1 = new Shake(password_field);
+            userAnim1.Play();
+            userAnim.Play();
+        }
+
+
     }
 
     @FXML
     private void authclick(){
-        authSignInButton.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SignUp.fxml"));
-        try{
-        loader.load();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+        OpenScene toopen1 = new OpenScene();
+        toopen1.openS("SignUp.fxml", authSignInButton);
     }
+
+
+
+
+
+
 
 
 }
